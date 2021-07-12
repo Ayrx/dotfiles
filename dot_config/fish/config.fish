@@ -9,7 +9,7 @@ set PATH ~/.cargo/bin $PATH
 set -x RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src
 
 # fzf
-source ~/.nix-profile/share/fzf/key-bindings.fish && fzf_key_bindings
+source ~/.config/fish/functions/fzf_key_bindings.fish && fzf_key_bindings
 set -x FZF_DEFAULT_COMMAND fd .
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x FZF_ALT_C_COMMAND fd -t d . $HOME
@@ -19,6 +19,7 @@ set -x PYTHONDONTWRITEBYTECODE 1
 set PATH ~/tools/bin $PATH
 set PATH ~/tools/ansible_bin $PATH
 set PATH ~/.nix-profile/bin $PATH
+fish_add_path /opt/homebrew/opt/curl/bin
 
 if test (uname) = "Darwin"
     set -x NIX_SSL_CERT_FILE /etc/ssl/cert.pem
@@ -40,7 +41,7 @@ function ara
 end
 
 function fish_greeting
-    fortune -a
+    fortune
 end
 
 # Aliases
