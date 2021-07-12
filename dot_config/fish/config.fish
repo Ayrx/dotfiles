@@ -20,6 +20,7 @@ set PATH ~/tools/bin $PATH
 set PATH ~/tools/ansible_bin $PATH
 set PATH ~/.nix-profile/bin $PATH
 fish_add_path /opt/homebrew/opt/curl/bin
+fish_add_path /opt/homebrew/opt/zip/bin
 
 if test (uname) = "Darwin"
     set -x NIX_SSL_CERT_FILE /etc/ssl/cert.pem
