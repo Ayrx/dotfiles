@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "diagnostic.messageTarget": "float",
+    "diagnostic.joinMessageLines": true,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.virtualText": false,
+    "coc.preferences.formatOnSaveFiletypes": ["rust"],
+}

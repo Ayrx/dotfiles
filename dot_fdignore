@@ -1,0 +1,2 @@
+# This .gitignore is used to signal to fzf which directories to ignore.
+/Library/
