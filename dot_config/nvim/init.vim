@@ -81,3 +81,5 @@ autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd Filetype htmldjango setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd Filetype css setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 expandtab
+
+autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
