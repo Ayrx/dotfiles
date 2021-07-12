@@ -5,7 +5,7 @@ set -x EDITOR nvim
 #set -x NIX_PATH ~/.nix-defexpr/channels $NIX_PATH
 
 # Rust setup
-set PATH ~/.cargo/bin $PATH
+fish_add_path ~/.cargo/bin
 set -x RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src
 
 # fzf
@@ -16,9 +16,6 @@ set -x FZF_ALT_C_COMMAND fd -t d . $HOME
 
 # Others
 set -x PYTHONDONTWRITEBYTECODE 1
-set PATH ~/tools/bin $PATH
-set PATH ~/tools/ansible_bin $PATH
-set PATH ~/.nix-profile/bin $PATH
 fish_add_path /opt/homebrew/opt/curl/bin
 fish_add_path /opt/homebrew/opt/zip/bin
 

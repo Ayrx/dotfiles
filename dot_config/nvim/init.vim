@@ -66,8 +66,7 @@ endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Configure Coc
-" Reenable this config once neovim 0.5.0 is released
-" setlocal tagfunc=CocTagFunc
+setlocal tagfunc=CocTagFunc
 
 "Configure Rust
 let g:rustfmt_command = "rustfmt +stable"
