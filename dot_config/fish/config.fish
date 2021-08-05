@@ -1,9 +1,5 @@
 set -x EDITOR nvim
 
-# Nix setup
-#set PATH ~/.nix-profile/bin $PATH
-#set -x NIX_PATH ~/.nix-defexpr/channels $NIX_PATH
-
 # Rust setup
 fish_add_path ~/.cargo/bin
 set -x RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src
@@ -18,10 +14,10 @@ set -x FZF_ALT_C_COMMAND fd -t d . $HOME
 set -x PYTHONDONTWRITEBYTECODE 1
 fish_add_path /opt/homebrew/opt/curl/bin
 fish_add_path /opt/homebrew/opt/zip/bin
+fish_add_path /opt/homebrew/opt/sqlite/bin
+fish_add_path /opt/homebrew/opt/openssl@1.1/bin
 
 if test (uname) = "Darwin"
-    set -x NIX_SSL_CERT_FILE /etc/ssl/cert.pem
-
     if test (arch) = "arm64"
         eval (/opt/homebrew/bin/brew shellenv)
     else
