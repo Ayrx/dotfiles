@@ -11,6 +11,7 @@ cask "homebrew/cask-versions/adoptopenjdk8"
 cask "zotero"
 cask "adoptopenjdk"
 cask "android-studio"
+cask "db-browser-for-sqlite"
 
 brew "tmux"
 brew "python@3.9"

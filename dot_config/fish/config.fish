@@ -20,6 +20,7 @@ fish_add_path /opt/homebrew/opt/openssl@1.1/bin
 if test (uname) = "Darwin"
     if test (arch) = "arm64"
         eval (/opt/homebrew/bin/brew shellenv)
+        fish_add_path /opt/homebrew/bin
     else
         eval (/usr/local/bin/brew shellenv)
     end
@@ -41,3 +42,4 @@ end
 # Aliases
 abbr -a autochrome ~/.local/autochrome/chrome --remote-debugging-port=9222
 abbr -a cat bat --paging=never
+abbr -a vim nvim

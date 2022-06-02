@@ -19,8 +19,10 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'souffle-lang/souffle.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'hashivim/vim-terraform'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'glepnir/lspsaga.nvim'
 
 call plug#end()
 
@@ -65,13 +67,6 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-" Configure Coc
-setlocal tagfunc=CocTagFunc
-
-"Configure Rust
-let g:rustfmt_command = "rustfmt +stable"
-let g:rustfmt_autosave_if_config_present = 1
-
 "Configure fzf
 nnoremap <silent> <C-p> :Files<CR>
 
@@ -82,3 +77,22 @@ autocmd Filetype css setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 expandtab
 
 autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
+
+" completion-nvim configuration
+autocmd BufEnter * lua require'completion'.on_attach()
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+
+" nvm-lspconfig
+nnoremap <silent> gf    <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> gs    <cmd>Lspsaga signature_help<CR>
+nnoremap <silent> K     <cmd>Lspsaga hover_doc<CR>
+nnoremap <silent> ga    <cmd>Lspsaga code_action<CR>
+nnoremap <silent> gh    <cmd>Lspsaga lsp_finder<CR>
+
+lua << EOF
+require'lspconfig'.rust_analyzer.setup{}
+require'lspconfig'.pylsp.setup{}
+EOF
