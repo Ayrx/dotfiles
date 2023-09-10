@@ -1,4 +1,5 @@
 set -x EDITOR nvim
+starship init fish | source
 
 # Rust setup
 fish_add_path ~/.cargo/bin
@@ -43,3 +44,5 @@ end
 abbr -a autochrome ~/.local/autochrome/chrome --remote-debugging-port=9222
 abbr -a cat bat --paging=never
 abbr -a vim nvim
+
+set -x GOPATH ~/code/go
